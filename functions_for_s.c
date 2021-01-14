@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int		ft_puts(char *s, int accur)
+int		putstr(char *s, int accur)
 {
 	int	i;
 
@@ -34,16 +34,7 @@ int		ft_puts(char *s, int accur)
 	return (i);
 }
 
-void	ft_if_arg_null(char *arg1)
-{
-	if (arg1 == NULL)
-	{
-		write(1, "(null)", 6);
-		return ;
-	}
-}
-
-int		ft_len_s(char *arg1)
+int		len_s(char *arg1)
 {
 	int	len;
 

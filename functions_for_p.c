@@ -26,8 +26,6 @@ void	ft_putnbr_p(unsigned long long int n)
 		n = n / 16;
 		i = i * 16;
 	}
-	if (i == 1)
-		i = 0;
 	while (i > 0)
 	{
 		num / i <= 9 ? res = (num / i) + '0' : 0;
@@ -38,7 +36,7 @@ void	ft_putnbr_p(unsigned long long int n)
 	}
 }
 
-int		ft_lensim_p(unsigned long long int arg)
+int		lensim_p(unsigned long long int arg)
 {
 	int	len;
 
@@ -53,7 +51,7 @@ int		ft_lensim_p(unsigned long long int arg)
 	return (len + 2);
 }
 
-void	ft_if_flag0_p(int width, int accur, unsigned long long int arg1)
+void	flag0_p(int width, int accur, unsigned long long int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
@@ -62,38 +60,13 @@ void	ft_if_flag0_p(int width, int accur, unsigned long long int arg1)
 			write(1, " ", 1);
 		while (accur-- > 0)
 			write(1, "0", 1);
-		arg1 == 0 ? write(1, "0x", 2) : ft_putnbr_p(arg1);
+		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
 	}
 	if (width != 0 && accur == 0)
 	{
 		while (width-- > 0)
 			write(1, " ", 1);
-		arg1 == 0 ? write(1, "0x", 2) : ft_putnbr_p(arg1);
-	}
-	if (width == 0 && accur != 0)
-	{
-		while (accur-- > 0)
-			write(1, "0", 1);
-		arg1 == 0 ? write(1, "0x", 2) : ft_putnbr_p(arg1);
-	}
-}
-
-void	ft_if_flag1_p(int width, int accur, unsigned long long int arg1)
-{
-	if (width != 0 && accur != 0)
-	{
-		width = (width > accur) ? width - accur : 0;
-		while (accur-- > 0)
-			write(1, "0", 1);
 		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
-		while (width-- > 0)
-			write(1, " ", 1);
-	}
-	if (width != 0 && accur == 0)
-	{
-		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
-		while (width-- > 0)
-			write(1, " ", 1);
 	}
 	if (width == 0 && accur != 0)
 	{
@@ -103,7 +76,32 @@ void	ft_if_flag1_p(int width, int accur, unsigned long long int arg1)
 	}
 }
 
-void	ft_if_flag2_p(int width, int accur, unsigned long long int arg1)
+void	flag1_p(int width, int accur, unsigned long long int arg1)
+{
+	if (width != 0 && accur != 0)
+	{
+		width = (width > accur) ? width - accur : 0;
+		while (accur-- > 0)
+			write(1, "0", 1);
+		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
+		while (width-- > 0)
+			write(1, " ", 1);
+	}
+	if (width != 0 && accur == 0)
+	{
+		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
+		while (width-- > 0)
+			write(1, " ", 1);
+	}
+	if (width == 0 && accur != 0)
+	{
+		while (accur-- > 0)
+			write(1, "0", 1);
+		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
+	}
+}
+
+void	flag2_p(int width, int accur, unsigned long long int arg1)
 {
 	if (width != 0 && accur != 0)
 	{

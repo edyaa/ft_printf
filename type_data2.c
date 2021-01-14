@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int	type_c(va_list argument, int flag, int width)
+int		type_c(va_list argument, int flag, int width)
 {
 	int	arg1;
 
@@ -38,7 +38,7 @@ int	type_c(va_list argument, int flag, int width)
 	return (1);
 }
 
-int	type_percent(int flag, int width)
+int		type_percent(int flag, int width)
 {
 	int	arg1;
 
@@ -65,13 +65,13 @@ int	type_percent(int flag, int width)
 	return (1);
 }
 
-int	type_s(va_list argument, int flag, int width, int accur)
+int		type_s(va_list argument, int flag, int width, int accur)
 {
 	char	*arg1;
 	int		len;
 
 	arg1 = va_arg(argument, char *);
-	len = ft_len_s(arg1);
+	len = len_s(arg1);
 	width < 0 ? flag = 1 : 0;
 	width < 0 ? width = -width : 0;
 	accur < len && accur >= 0 ? len = accur : 0;
@@ -80,20 +80,20 @@ int	type_s(va_list argument, int flag, int width, int accur)
 	{
 		while (width-- > 0)
 			write(1, " ", 1);
-		len = (arg1 == NULL) ? ft_puts("(null)", accur) : ft_puts(arg1, accur);
+		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
 	}
 	else if (width != 0 && flag == 1)
 	{
-		len = (arg1 == NULL) ? ft_puts("(null)", accur) : ft_puts(arg1, accur);
+		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
 		while (width-- > 0)
 			write(1, " ", 1);
 	}
 	else if (width == 0)
-		len = (arg1 == NULL) ? ft_puts("(null)", accur) : ft_puts(arg1, accur);
+		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
 	return (len);
 }
 
-int	check_type(const char *str, va_list argument)
+int		check_type(const char *str, va_list argument)
 {
 	int	i;
 	int	f;
@@ -102,7 +102,7 @@ int	check_type(const char *str, va_list argument)
 
 	i = 0;
 	f = flags(str);
-	width = _width(str, argument);
+	width = width_(str, argument);
 	accur = accuracy(str, argument);
 	while (*str != '%')
 		str++;

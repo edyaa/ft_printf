@@ -37,7 +37,7 @@ void	ft_putnbr_x(unsigned int n)
 	}
 }
 
-int		ft_lensim_x(unsigned int arg)
+int		lensim_x(unsigned int arg)
 {
 	int	len;
 
@@ -52,7 +52,7 @@ int		ft_lensim_x(unsigned int arg)
 	return (len);
 }
 
-void	ft_if_flag0_x(int width, int accur, unsigned int arg1)
+void	flag0_x(int width, int accur, unsigned int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
@@ -77,7 +77,7 @@ void	ft_if_flag0_x(int width, int accur, unsigned int arg1)
 	}
 }
 
-void	ft_if_flag1_x(int width, int accur, unsigned int arg1)
+void	flag1_x(int width, int accur, unsigned int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
@@ -102,7 +102,7 @@ void	ft_if_flag1_x(int width, int accur, unsigned int arg1)
 	}
 }
 
-void	ft_if_flag2_x(int width, int accur, unsigned int arg1)
+void	flag2_x(int width, int accur, unsigned int arg1)
 {
 	if (width != 0 && accur != 0)
 	{

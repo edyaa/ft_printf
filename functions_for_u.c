@@ -34,7 +34,7 @@ void	ft_putnbr_u(unsigned int n)
 	}
 }
 
-int		ft_lensim_u(unsigned int arg)
+int		lensim_u(unsigned int arg)
 {
 	int	len;
 
@@ -49,7 +49,7 @@ int		ft_lensim_u(unsigned int arg)
 	return (len);
 }
 
-void	ft_if_flag0_u(int width, int accur, unsigned int arg1)
+void	flag0_u(int width, int accur, unsigned int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
@@ -74,7 +74,7 @@ void	ft_if_flag0_u(int width, int accur, unsigned int arg1)
 	}
 }
 
-void	ft_if_flag1_u(int width, int accur, unsigned int arg1)
+void	flag1_u(int width, int accur, unsigned int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
@@ -99,7 +99,7 @@ void	ft_if_flag1_u(int width, int accur, unsigned int arg1)
 	}
 }
 
-void	ft_if_flag2_u(int width, int accur, unsigned int arg1)
+void	flag2_u(int width, int accur, unsigned int arg1)
 {
 	if (width != 0 && accur != 0)
 	{

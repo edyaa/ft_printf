@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int		ft_accminus(int accur, int arg1, int width)
+int		accuracy_minus(int accur, int arg1, int width)
 {
 	if (arg1 == -2147483648 && accur <= 0 && width == 0)
 		write(1, "-2147483648", 11);
@@ -38,14 +38,14 @@ int		ft_accminus(int accur, int arg1, int width)
 	return (arg1);
 }
 
-void	ft_if_flag0(int width, int accur, int arg1)
+void	flag0(int width, int accur, int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
 		width = (width > accur) ? width - accur : 0;
 		while (width-- > 0)
 			write(1, " ", 1);
-		arg1 = ft_accminus(accur, arg1, width);
+		arg1 = accuracy_minus(accur, arg1, width);
 		ft_putnbr(arg1);
 	}
 	if (width != 0 && accur == 0)
@@ -56,18 +56,18 @@ void	ft_if_flag0(int width, int accur, int arg1)
 	}
 	if (width == 0 && accur != 0)
 	{
-		arg1 = ft_accminus(accur, arg1, width);
+		arg1 = accuracy_minus(accur, arg1, width);
 		ft_putnbr(arg1);
 	}
 	width == 0 && accur == 0 ? ft_putnbr(arg1) : 0;
 }
 
-void	ft_if_flag1(int width, int accur, int arg1)
+void	flag1(int width, int accur, int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
 		width = (width > accur) ? width - accur : 0;
-		arg1 = ft_accminus(accur, arg1, width);
+		arg1 = accuracy_minus(accur, arg1, width);
 		ft_putnbr(arg1);
 		while (width-- > 0)
 			write(1, " ", 1);
@@ -80,20 +80,20 @@ void	ft_if_flag1(int width, int accur, int arg1)
 	}
 	if (width == 0 && accur != 0)
 	{
-		arg1 = ft_accminus(accur, arg1, width);
+		arg1 = accuracy_minus(accur, arg1, width);
 		ft_putnbr(arg1);
 	}
 	width == 0 && accur == 0 ? ft_putnbr(arg1) : 0;
 }
 
-void	ft_if_flag2(int width, int accur, int arg1)
+void	flag2(int width, int accur, int arg1)
 {
 	if (width != 0 && accur != 0)
 	{
 		width = (width > accur) ? width - accur : 0;
 		while (width-- > 0)
 			write(1, " ", 1);
-		arg1 = ft_accminus(accur, arg1, width);
+		arg1 = accuracy_minus(accur, arg1, width);
 		ft_putnbr(arg1);
 	}
 	if (width != 0 && accur == 0)
@@ -109,7 +109,7 @@ void	ft_if_flag2(int width, int accur, int arg1)
 	}
 	if (width == 0 && accur != 0)
 	{
-		arg1 = ft_accminus(accur, arg1, width);
+		arg1 = accuracy_minus(accur, arg1, width);
 		ft_putnbr(arg1);
 	}
 	width == 0 && accur == 0 ? ft_putnbr(arg1) : 0;
@@ -118,9 +118,9 @@ void	ft_if_flag2(int width, int accur, int arg1)
 void	ft_for_di(int flag, int width, int accur, int arg1)
 {
 	if (flag == 0 && arg1 != -2147483648)
-		ft_if_flag0(width, accur, arg1);
+		flag0(width, accur, arg1);
 	else if (flag == 1 && arg1 != -2147483648)
-		ft_if_flag1(width, accur, arg1);
+		flag1(width, accur, arg1);
 	else if (flag == 2 && arg1 != -2147483648)
-		ft_if_flag2(width, accur, arg1);
+		flag2(width, accur, arg1);
 }

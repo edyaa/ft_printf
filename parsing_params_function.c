@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int		_width(const char *str, va_list argument)
+int		width_(const char *str, va_list argument)
 {
 	int	width;
 	int	i;
@@ -44,8 +44,8 @@ int		accuracy(const char *str, va_list argument)
 		i++;
 	if (str[i] == '%')
 		i++;
-	while (str[i] != '.' && str[i] != 'd' && str[i] != 'i' && str[i] != 'p' &&
-	str[i] != 'c' && str[i] != 'u' && str[i] != 'x' && str[i] != 'X' &&
+	while (str[i] != '.' && str[i] != 'd' && str[i] != 'i' && str[i] != 'p' && \
+	str[i] != 'c' && str[i] != 'u' && str[i] != 'x' && str[i] != 'X' && \
 	str[i] != 's' && str[i] != '%' && str[i])
 		i++;
 	if (str[i] == '.')
@@ -83,17 +83,17 @@ int		count(const char *str, int i, int width, int accuracy)
 {
 	width < 0 ? width = -width : 0;
 	if (*str == 'x' || *str == 'X' || *str == 'u' || *str == 'p')
-		i = count1(i, accuracy, width);
+		i = count_xxup(i, accuracy, width);
 	if (*str == 'd' || *str == 'i')
-		i = count2(i, accuracy, width);
+		i = count_di(i, accuracy, width);
 	if (*str == 'c' || *str == '%')
 		width > i ? i = i + (width - i) : 0;
 	if (*str == 's')
-		i = count3(i, accuracy, width);
+		i = count_s(i, accuracy, width);
 	return (i);
 }
 
-void	ft_accurzero(int width)
+void	accuracy_zero(int width)
 {
 	while (width-- > 0)
 		write(1, " ", 1);

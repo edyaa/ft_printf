@@ -12,41 +12,41 @@
 
 #include "header.h"
 
-int	count1(int i, int accuracy, int width)
+int	count_xxup(int i, int accuracy, int width)
 {
 	if (width > i && accuracy >= i && width >= accuracy)
-		i = (width - accuracy) + accuracy;
+		i = width;
 	else if (width > i && accuracy >= i && width < accuracy)
 		i = accuracy;
 	else if (width >= i && accuracy <= i)
-		i = i + (width - i);
+		i = width;
 	else if (width <= i && accuracy >= i)
-		i = i + (accuracy - i);
+		i = accuracy;
 	return (i);
 }
 
-int	count2(int i, int accuracy, int width)
+int	count_di(int i, int accuracy, int width)
 {
 	if (width > i && accuracy >= i && width >= accuracy)
-		i = (width - accuracy) + accuracy;
+		i = width;
 	else if (width >= i && accuracy >= i && width < accuracy)
 		i = accuracy;
 	else if (width > i && accuracy < i)
-		i = i + (width - i);
+		i = width;
 	else if (width < i && accuracy > i)
-		i = i + (accuracy - i);
+		i = accuracy;
 	return (i);
 }
 
-int	count3(int i, int accuracy, int width)
+int	count_s(int i, int accuracy, int width)
 {
 	if (width > i && accuracy > i)
-		i = i + (width - i);
+		i = width;
 	else if (width > i && accuracy < 0)
-		i = i + (width - i);
+		i = width;
 	else if (width > accuracy & accuracy == 0)
 		i = width;
 	else if (width > accuracy && accuracy > 0)
-		i = (width - accuracy) + accuracy;
+		i = width;
 	return (i);
 }

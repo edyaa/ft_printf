@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-int		ft_lensim(int arg)
+int		lensim(int arg)
 {
 	int	len;
 	int	znak;
@@ -35,7 +35,7 @@ int		ft_lensim(int arg)
 	return (len);
 }
 
-void	ft_minint1(int width, int accur, int flag)
+void	minint1(int width, int accur, int flag)
 {
 	if (width > accur && width > 11 && accur > 10 && flag == 1)
 	{
@@ -61,7 +61,7 @@ void	ft_minint1(int width, int accur, int flag)
 	}
 }
 
-void	ft_minint2(int width, int accur, int flag)
+void	minint2(int width, int accur, int flag)
 {
 	if (width > accur && width > 11 && accur <= 10 && flag == 1)
 	{
@@ -89,16 +89,16 @@ void	ft_minint2(int width, int accur, int flag)
 	}
 }
 
-void	ft_minint(int width, int accur, int flag)
+void	minint(int width, int accur, int flag)
 {
 	if (width > accur && width > 11 && accur > 10 && flag == 1)
-		ft_minint1(width, accur, flag);
+		minint1(width, accur, flag);
 	else if (width > accur && width > 11 && accur > 10)
-		ft_minint1(width, accur, flag);
+		minint1(width, accur, flag);
 	else if (width > accur && width > 11 && accur <= 10)
-		ft_minint2(width, accur, flag);
+		minint2(width, accur, flag);
 	else if (width > accur && width > 11 && accur <= 10)
-		ft_minint1(width, accur, flag);
+		minint1(width, accur, flag);
 	else if (width <= 11 && accur <= 10)
 		ft_putnbr(-2147483648);
 }
