@@ -88,6 +88,15 @@ int		type_s(va_list argument, int flag, int width, int accur)
 		while (width-- > 0)
 			write(1, " ", 1);
 	}
+	else if (width != 0 && flag == 2)
+	{
+		while (width != 0)
+		{
+			write(1, "0", 1);
+			width--;
+		}
+		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
+	}
 	else if (width == 0)
 		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
 	return (len);
