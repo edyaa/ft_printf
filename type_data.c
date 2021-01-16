@@ -77,20 +77,23 @@ int		type_p(va_list argument, int flag, int accur, int width)
 
 	arg1 = va_arg(argument, unsigned long long int);
 	len = (arg1 == 0) ? 3 : lensim_p(arg1);
+	len = (arg1 == 0 && accur == -2) ? len-1 : len;
 	width < 0 ? flag = 1 : 0;
 	width < 0 ? width = -width : 0;
 	width = (width > len) ? width - len : 0;
 	accur <= len && flag == 2 && accur >= 0 ? flag = 0 : 0;
 	if (accur > len)
-		accur = accur - len;
-	else
+		accur = (arg1 != 0) ? accur - len : accur - 1;
+	else if (accur != -2)
 		accur = 0;
 	width == 0 && accur == 0 && arg1 != 0 ? ft_putnbr_p(arg1) : 0;
-	width == 0 && accur == 0 && arg1 == 0 ? write(1, "0x0", 3) : 0;
+	width == 0 && accur > 0 && arg1 == 0 ? write(1, "0x0", 3) : 0;
+	width == 0 && accur == -2 && arg1 == 0 ? write(1, "0x", 2) : 0;
+	
 	if (flag == 0)
-		flag0_p(width, accur, arg1);
+		accur == -2 ? flag0_p(width, 0, arg1, 1) : flag0_p(width, accur, arg1, 0);
 	else if (flag == 1)
-		flag1_p(width, accur, arg1);
+		accur == -2 ? flag1_p(width, 0, arg1, 1) : flag1_p(width, accur, arg1, 0);
 	else if (flag == 2)
 		flag2_p(width, accur, arg1);
 	return (len);

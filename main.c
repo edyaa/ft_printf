@@ -1,9 +1,11 @@
 # include "header.h"
 #include <stdio.h>
+
 int 	main(void)
 {
-	int ac = printf("a|%09s\n", "hi low");
-	int bc = ft_printf("b|%09s\n", "hi low");
+	char * a = "hello";
+	int ac = printf(" a| %.5p\n", 0);
+	int bc = ft_printf(" b| %.5p\n", 0);
 	printf("[%i][%i]\n", ac, bc);
 	return (0);
 }
