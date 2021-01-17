@@ -60,24 +60,15 @@ void	flag0_p(int width, int accur, unsigned long long int arg1, int dot)
 			write(1, " ", 1);
 		while (accur-- > 0)
 			write(1, "0", 1);
-		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
+		(arg1 == 0 && dot == 0) ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
 	}
 	if (width != 0 && accur == 0)
-	{
-		while (width-- > 0)
-			write(1, " ", 1);
-		if (arg1 == 0 && dot == 1)
-			write(1, "0x", 2);
-		else if (arg1 == 0 && dot == 0)
-				write(1, "0x0", 3);
-		else
-			ft_putnbr_p(arg1);
-	}
+		flag0_1p(width, arg1, dot);
 	if (width == 0 && accur != 0)
 	{
 		while (accur-- > 0)
 			write(1, "0", 1);
-		arg1 != 0 ? ft_putnbr_p(arg1) : 0;
+		arg1 == 0 ? write(1, "0x0", 3) : ft_putnbr_p(arg1);
 	}
 }
 
@@ -93,16 +84,7 @@ void	flag1_p(int width, int accur, unsigned long long int arg1, int dot)
 			write(1, " ", 1);
 	}
 	if (width != 0 && accur == 0)
-	{
-		if (arg1 == 0 && dot == 1)
-			write(1, "0x", 2);
-		else if (arg1 == 0 && dot == 0)
-				write(1, "0x0", 3);
-		else
-			ft_putnbr_p(arg1);
-		while (width-- > 0)
-			write(1, " ", 1);
-	}
+		flag1_1p(width, arg1, dot);
 	if (width == 0 && accur != 0)
 	{
 		while (accur-- > 0)

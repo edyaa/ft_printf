@@ -77,26 +77,11 @@ int		type_s(va_list argument, int flag, int width, int accur)
 	accur < len && accur >= 0 ? len = accur : 0;
 	width = (width > len) ? width - len : 0;
 	if (width != 0 && flag == 0)
-	{
-		while (width-- > 0)
-			write(1, " ", 1);
-		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
-	}
+		len = flag_0_width_not_0(len, arg1, width, accur);
 	else if (width != 0 && flag == 1)
-	{
-		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
-		while (width-- > 0)
-			write(1, " ", 1);
-	}
+		len = flag_1_width_not_0(len, arg1, width, accur);
 	else if (width != 0 && flag == 2)
-	{
-		while (width != 0)
-		{
-			write(1, "0", 1);
-			width--;
-		}
-		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
-	}
+		len = flag_2_width_not_0(len, arg1, width, accur);
 	else if (width == 0)
 		len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
 	return (len);
@@ -108,11 +93,13 @@ int		check_type(const char *str, va_list argument)
 	int	f;
 	int	width;
 	int	accur;
+	int dot;
 
 	i = 0;
-	f = flags(str);
+	dot = dot_(str);
 	width = width_(str, argument);
 	accur = accuracy(str, argument);
+	f = flags(str);
 	while (*str != '%')
 		str++;
 	*str == '%' ? str++ : 0;
@@ -123,7 +110,7 @@ int		check_type(const char *str, va_list argument)
 	*str == 'u' ? i = type_u(argument, f, accur, width) : 0;
 	*str == 'x' ? i = type_x(argument, f, accur, width) : 0;
 	*str == 'X' ? i = type_xx(argument, f, accur, width) : 0;
-	*str == 'p' ? i = type_p(argument, f, accur, width) : 0;
+	*str == 'p' ? i = type_p(argument, f, accur, width, dot) : 0;
 	*str == '%' ? i = type_percent(f, width) : 0;
 	i = count(str, i, width, accur);
 	return (i);

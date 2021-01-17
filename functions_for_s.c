@@ -46,3 +46,27 @@ int		len_s(char *arg1)
 			len++;
 	return (len);
 }
+
+int		flag_0_width_not_0(int len, char *arg1, int width, int accur)
+{
+	while (width-- > 0)
+		write(1, " ", 1);
+	len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
+	return (len);
+}
+
+int		flag_1_width_not_0(int len, char *arg1, int width, int accur)
+{
+	len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
+	while (width-- > 0)
+		write(1, " ", 1);
+	return (len);
+}
+
+int		flag_2_width_not_0(int len, char *arg1, int width, int accur)
+{
+	while (width-- != 0)
+		write(1, "0", 1);
+	len = (arg1 == NULL) ? putstr("(null)", accur) : putstr(arg1, accur);
+	return (len);
+}

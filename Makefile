@@ -15,6 +15,7 @@ SRCS =	ft_printf.c\
 		counters.c\
 		functions_for_d_and_i2.c\
 		functions_for_p.c\
+		functions_for_p2.c\
 		functions_for_s.c\
 		functions_for_u.c\
 		functions_for_x.c\
@@ -39,14 +40,14 @@ all: ${NAME}
 	@gcc $(FLAGS) -c $< -o $@
 
 ${NAME}:${OBJ}
-	ar rc ${NAME} ${OBJ}
-	ranlib ${NAME}
+	@ar rc ${NAME} ${OBJ}
+	@ranlib ${NAME}
 
 clean:
-	rm -f ${OBJ}
+	@rm -f ${OBJ}
 
 fclean: clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re: fclean all
 

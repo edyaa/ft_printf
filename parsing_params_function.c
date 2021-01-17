@@ -44,22 +44,16 @@ int		accuracy(const char *str, va_list argument)
 		i++;
 	if (str[i] == '%')
 		i++;
-	while (str[i] != '.' && str[i] != 'd' && str[i] != 'i' && str[i] != 'p' && \
-	str[i] != 'c' && str[i] != 'u' && str[i] != 'x' && str[i] != 'X' && \
+	while (str[i] != '.' && str[i] != 'd' && str[i] != 'i' && str[i] != 'p' &&
+	str[i] != 'c' && str[i] != 'u' && str[i] != 'x' && str[i] != 'X' &&
 	str[i] != 's' && str[i] != '%' && str[i])
 		i++;
-	if (str[i] == '.'){
+	if (str[i] == '.')
 		i++;
-	}
 	else
 		return (acc);
 	if (str[i] != '*')
-	{
-		if (str[i] == 'p' && str[i - 1] == '.')
-			acc = -2;
-		else
-			acc = ft_atoi(&str[i]);	
-	}
+		acc = ft_atoi(&str[i]);
 	else
 		acc = va_arg(argument, int);
 	return (acc);
