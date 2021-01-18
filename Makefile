@@ -30,7 +30,7 @@ OBJ = ${SRCS:.c=.o}
 
 NAME = libftprintf.a
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = #-Wall -Wextra -Werror
 
 HEADER = header.h
 

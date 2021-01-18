@@ -70,11 +70,15 @@ int		type_x(va_list argument, int flag, int accur, int width)
 	return (len);
 }
 
-int		type_p(va_list argument, int flag, int accur, int width, int dot)
+int		type_p(va_list argument, int flag, int *params, int dot)
 {
 	unsigned long long int	arg1;
 	int						len;
+	int						width;
+	int						accur;
 
+	width = params[0];
+	accur = params[1];
 	arg1 = va_arg(argument, unsigned long long int);
 	len = (arg1 == 0) && (dot == 0) ? 3 : lensim_p(arg1);
 	len = (arg1 == 0) && (dot == 1) ? 2 : lensim_p(arg1);

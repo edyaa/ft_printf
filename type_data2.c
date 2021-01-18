@@ -89,29 +89,27 @@ int		type_s(va_list argument, int flag, int width, int accur)
 
 int		check_type(const char *str, va_list argument)
 {
-	int	i;
-	int	f;
-	int	width;
-	int	accur;
-	int dot;
+	int		i;
+	int		f;
+	int		dot;
+	int		*params;
 
 	i = 0;
 	dot = dot_(str);
-	width = width_(str, argument);
-	accur = accuracy(str, argument);
+	params = width_accuracy(str, argument);
 	f = flags(str);
 	while (*str != '%')
 		str++;
 	*str == '%' ? str++ : 0;
 	str = skip_before_type(str);
-	*str == 'd' || *str == 'i' ? i = type_d_i(argument, f, accur, width) : 0;
-	*str == 'c' ? i = type_c(argument, f, width) : 0;
-	*str == 's' ? i = type_s(argument, f, width, accur) : 0;
-	*str == 'u' ? i = type_u(argument, f, accur, width) : 0;
-	*str == 'x' ? i = type_x(argument, f, accur, width) : 0;
-	*str == 'X' ? i = type_xx(argument, f, accur, width) : 0;
-	*str == 'p' ? i = type_p(argument, f, accur, width, dot) : 0;
-	*str == '%' ? i = type_percent(f, width) : 0;
-	i = count(str, i, width, accur);
+	*str == 'd' || *str == 'i' ? i = type_d_i(argument, f, params[1], params[0]) : 0;
+	*str == 'c' ? i = type_c(argument, f, params[0]) : 0;
+	*str == 's' ? i = type_s(argument, f, params[0], params[1]) : 0;
+	*str == 'u' ? i = type_u(argument, f, params[1], params[0]) : 0;
+	*str == 'x' ? i = type_x(argument, f, params[1], params[0]) : 0;
+	*str == 'X' ? i = type_xx(argument, f, params[1], params[0]) : 0;
+	*str == 'p' ? i = type_p(argument, f, params, dot) : 0;
+	*str == '%' ? i = type_percent(f, params[0]) : 0;
+	i = count(str, i, params[0], params[1]);
 	return (i);
 }
