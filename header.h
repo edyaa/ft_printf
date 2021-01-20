@@ -64,7 +64,7 @@ int			type_c(va_list argument, int flag, int width);
 int			type_s(va_list argument, int flag, int width, int accur);
 int			type_x(va_list argument, int flag, int accur, int width);
 int			type_xx(va_list argument, int flag, int accur, int width);
-int         type_p(va_list argument, int flag, int *params, int dot);
+int			type_p(va_list argument, int flag, int *params, int dot);
 int			type_d_i(va_list argument, int flag, int acc, int width);
 int			type_percent(int flag, int width);
 int			count(const char *str, int i, int width, int accuracy);
@@ -80,6 +80,5 @@ void		flag1_1p(int width, unsigned long long int arg1, int dot);
 int			flag_0_width_not_0(int len, char *arg1, int width, int accur);
 int			flag_1_width_not_0(int len, char *arg1, int width, int accur);
 int			flag_2_width_not_0(int len, char *arg1, int width, int accur);
-int 	    *width_accuracy(const char *str, va_list arg);
 
 #endif

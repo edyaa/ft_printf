@@ -56,15 +56,3 @@ int				dot_(const char *str)
 		return (1);
 	return (0);
 }
-
-int 	*width_accuracy(const char *str, va_list arg)
-{
-	int		params[2];
-	int		*tmp;
-
-	tmp = params;
-	params[0] = width_(str, arg);
-	params[1] = accuracy(str, arg);
-
-	return (tmp);
-}
